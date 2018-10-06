@@ -1,4 +1,4 @@
-    package baitap3;
+package baitap3;
 
 public class Location {
     private int row;
@@ -15,7 +15,17 @@ public class Location {
 
     }
 
-    public void locateLargest(double[][]a){
-
+    public void locateLargest(double[][] a) {
+        for (int i = 0; i < a.length; i++) {
+            for (int j = 1; j < a[i].length; j++) {
+                if (maxValue <= a[i][j]){
+                    maxValue = a[i][j];
+                    this.row = i;
+                    this.collum = j;
+                }
+            }
+        }
+        System.out.println("Giá trị lớn nhất trong mảng 2 chiều là "+maxValue
+                + " tại vị trí Hàng "+(this.row+1)+" Cột "+(this.collum+1));
     }
 }
