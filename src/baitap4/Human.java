@@ -48,11 +48,11 @@ public class Human {
 
     public void eat(Apple apple) {
         if (apple.isEmpty()) {
-            System.out.println(this.name + " ăn 1 miếng táo");
             apple.weight--;
+            System.out.println(this.name + " ăn 1 miếng táo");
             System.out.println("Còn " + apple.getWeight() + " miếng táo");
         } else {
-            System.out.println("Đã hết táo để ăn");
+            System.out.println(this.name+" Đã hết táo để ăn");
         }
     }
 

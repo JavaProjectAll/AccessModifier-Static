@@ -5,6 +5,6 @@ public class God {
     }
 
     public static void say(String say){
-        System.out.println("GOD nói: "+say);
+        System.out.println("CHÚA nói: "+say);
     }
 }
