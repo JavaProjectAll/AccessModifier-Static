@@ -1,7 +1,7 @@
 package baitap5.codegym.todo;
 
 public class Entry {
-    private static int count = 0;
+    public static int count = 0;
     private int priority = 0;
     private String notes;
 
