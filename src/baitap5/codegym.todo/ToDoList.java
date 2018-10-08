@@ -22,17 +22,24 @@ public class ToDoList {
     public void showTodoList() {
         if (length > 0) {
             for (int i = 0; i < length; i++) {
-                System.out.println("\t" + i + " - " + list[i].getNotes());
+                System.out.println("\t" + i + " - [" +list[i].getPriority()+"]"+ list[i].getNotes());
             }
-        }else {
+        } else {
             System.out.println("Không có dữ liệu");
         }
     }
 
     public void sortList() {
-        for (int i = 0; i < length; i++) {
-            if (list[i].getPriority() == 0) {
-
+        Entry backup;
+        System.out.println("Sắp xếp theo độ ưu tiên");
+        for (int i = 0; i < length ; i++) {
+            for (int j = i+1; j < length; j++) {
+                if (list[i].getPriority() > list[j].getPriority()){
+                    backup = list[i];
+                    list[i] = list[j];
+                    list[j] = backup;
+                    continue;
+                }
             }
         }
     }

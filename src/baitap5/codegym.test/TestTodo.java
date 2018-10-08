@@ -13,16 +13,30 @@ public class TestTodo {
 //        };
         System.out.println("*Có tổng cộng " + Entry.getCount() + " tác vụ");
         ToDoList toDoList = new ToDoList(entry, Entry.getCount());
-        entry[0] = new Entry(0,"5h30 Dậy tập thể dục");
-        toDoList.addEntry(entry[0]);
-        entry[1] = new Entry(1,"6h30 Ăn sáng");
-        toDoList.addEntry(entry[1]);
-        entry[2] = new Entry(0,"7h Đi học");
-        toDoList.addEntry(entry[2]);
-        entry[3] = new Entry(1,"8h vào chỗ làm");
-        toDoList.addEntry(entry[3]);
-        entry[4] = new Entry(1,"10h tập thể dục giữa giờ");
-        toDoList.addEntry(entry[4]);
+        int n=0;
+        entry[n] = new Entry(0,"5h30 Dậy tập thể dục");
+        toDoList.addEntry(entry[n]);
+        n++;
+
+        entry[n] = new Entry(1,"6h30 Ăn sáng");
+        toDoList.addEntry(entry[n]);
+        n++;
+
+        entry[n] = new Entry(0,"7h Đi học");
+        toDoList.addEntry(entry[n]);
+        n++;
+
+        entry[n] = new Entry(1,"8h vào chỗ làm");
+        toDoList.addEntry(entry[n]);
+        n++;
+
+        entry[n] = new Entry(0,"10h tập thể dục giữa giờ");
+        toDoList.addEntry(entry[n]);
+        n++;
+
+        toDoList.showTodoList();
+        System.out.println();
+        toDoList.sortList();
         toDoList.showTodoList();
         toDoList.removeEntry(2);
         toDoList.showTodoList();
