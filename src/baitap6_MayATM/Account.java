@@ -8,6 +8,7 @@ public class Account {
     private double annuallnterestRate = 0;
     private Date dateCreated;
     private double monthlyInterestRate;
+
     public Account() {
     }
 
@@ -51,15 +52,17 @@ public class Account {
     }
 
     public double getMonthlyInteresRate() {
-        this.monthlyInterestRate = this.annuallnterestRate/ 12;
+        this.monthlyInterestRate = this.annuallnterestRate / 12;
         return this.monthlyInterestRate;
     }
 
-    public double withdraw() {
-        return this.balance/100 * this.monthlyInterestRate;
+    public double withdraw(double money) {
+        System.out.println("Đã rút ra "+money+" khỏi tài khoản");
+        return this.balance -= money;
     }
 
-    public double deposit(double money){
-        return money;
+    public double deposit(double money) {
+        System.out.println("Đã gửi thêm "+money+" vào tài khoản");
+        return this.balance += money;
     }
 }

@@ -7,29 +7,45 @@ import java.util.Scanner;
 public class InfomationAccount {
     public static void main(String[] args) throws Exception {
         Scanner sc = new Scanner(System.in);
-        int check_id;
+        int id;
         int chose;
         boolean check = false;
         Account[] acc = new Account[10];
         displayAcc(acc);
-        check_id = sc.nextInt();
+        System.out.println("Nhập id để kiểm tra tài khoản");
+        id = sc.nextInt();
         for (int i = 0; i < acc.length; i++) {
-            if (check_id == acc[i].getId()) check = true;
+            if (id == acc[i].getId()) check = true;
         }
         if (check) {
             do {
+                System.out.println();
+                System.out.println("MENU");
                 System.out.println("1: check balana");
                 System.out.println("2: withdraw");
                 System.out.println("3: deposit");
                 System.out.println("4: exit");
+                System.out.println("Chọn phương thức bạn muốn kiểm tra: ");
                 chose = sc.nextInt();
                 if (chose >= 1 || chose <= 4) {
                     switch (chose) {
                         case 1:
+                            System.out.println("Số tiền của bạn là " + acc[id].getBalance() + "$");
                             break;
                         case 2:
+                            System.out.println("Nhập số tiền bạn muốn rút");
+                            double with_money = sc.nextDouble();
+                            if (with_money > acc[id].getBalance()) {
+                                System.out.println("Bạn có "+acc[id].getBalance()+"$ không đủ tiền để rút");
+                            }else {
+                                System.out.println("Tổng số tiền của bạn là " + acc[id].withdraw(with_money) + "$");
+                            }
                             break;
                         case 3:
+                            System.out.println("Nhập số tiền bạn gửi thêm");
+                            double money = sc.nextDouble();
+                            acc[id].deposit(money);
+                            System.out.println("Tổng số tiền của bạn là " + acc[id].getBalance() + "$");
                             break;
                         case 4:
                             System.exit(0);
@@ -38,8 +54,8 @@ public class InfomationAccount {
                 } else {
                     System.out.println("Nhập lại giá trị");
                 }
-            } while (chose < 1 || chose > 4);
-        }else {
+            } while (chose != 4);
+        } else {
             System.out.println("Chọn lại id để kiểm tra tài khoản");
         }
     }
